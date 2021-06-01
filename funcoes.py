@@ -3,16 +3,20 @@ def cria_baralho():
     baralho = ["A♥","2♥","3♥","4♥","5♥","6♥","7♥","8♥","9♥","10♥","Q♥","J♥","K♥","A♠","2♠","3♠","4♠","5♠","6♠","7♠","8♠","9♠","10♠","Q♠","J♠","K♠","A♦","2♦","3♦","4♦","5♦","6♦","7♦","8♦","9♦","10♦","Q♦","J♦","K♦","A♣","2♣","3♣","4♣","5♣","6♣","7♣","8♣","9♣","10♣","Q♣","J♣","K♣"]
     random.shuffle(baralho)
     return baralho
-    def extrai_naipe (card):
+    import random
+
+def extrai_naipe (card):
     np = card[len(card)-1]
     return np
+    
+    
 def extrai_valor(palavra):
     if len (palavra)== 2:
         return palavra[0]
     elif len (palavra) == 3:
         return palavra [0] + palavra[1] 
-
-
+        
+        
 def lista_movimentos_possiveis(baralho, posicao):
     movimentos = []
     
@@ -40,11 +44,15 @@ def lista_movimentos_possiveis(baralho, posicao):
         valor_3 = extrai_valor(baralho[posicao - 3])
         if naipe == naipe_1 or valor == valor_1:
             movimentos.append(1)
-        if naipe == naipe_3 or
-
-
-
-
+        if naipe == naipe_3 or valor == valor_3:
+            movimentos.append(3)
+    return movimentos
+    
+def empilha(baralho, origem, destino):
+    baralho[destino] = baralho[origem]
+    baralho.pop(origem)
+    return baralho
+    
 def possui_movimentos_possiveis(baralho):
     for i in range(len(baralho)):
         if lista_movimentos_possiveis(baralho, i) != []:
