@@ -17,16 +17,16 @@ posicoes_possiveis = []
 aux = list(posicoes_possiveis)
 
 img_da_carta = {}
-'''valores = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-naipes = ['♠', '♥', '♦', '♣']'''
-valores = ['A', '2']
-naipes = ['♣']
+valores = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+naipes = ['deespadas', 'decopas', 'deouros', 'depaus']
+'''valores = ['A', '2']
+naipes = ['♣']'''
 
 for valor in valores:
     for naipe in naipes:
         carta_auxiliar = valor + naipe
         img_da_carta[carta_auxiliar] = [pygame.image.load(f"imgs\{carta_auxiliar}.jpg"), (random.randint(10, largura), random.randint(10, altura))]
-
+print (img_da_carta)
 centro = pygame.Vector2(largura / 2, 0)
 vx = 0
 vy = 0
