@@ -1,20 +1,21 @@
 import random
 import pygame
 
-largura = 938
+#medidas/tamanho da tela
+largura = 938  
 altura = 620
 
-def texto(window, msg, cor, tam, x, y):
+def texto(window, msg, cor, tam, x, y): #função que define o local dos textos/mensagens
     font = pygame.font.SysFont(None, tam)
     texto1 = font.render(msg, True, cor)
     window.blit(texto1, [x, y])
 
-def cria_baralho():
+def cria_baralho():   #função de criar o baralho para o jogo
     baralho = ["A♥️","2♥️","3♥️","4♥️","5♥️","6♥️","7♥️","8♥️","9♥️","10♥️","Q♥️","J♥️","K♥️","A♠️","2♠️","3♠️","4♠️","5♠️","6♠️","7♠️","8♠️","9♠️","10♠️","Q♠️","J♠️","K♠️","A♦️","2♦️","3♦️","4♦️","5♦️","6♦️","7♦️","8♦️","9♦️","10♦️","Q♦️","J♦️","K♦️","A♣️","2♣️","3♣️","4♣️","5♣️","6♣️","7♣️","8♣️","9♣️","10♣️","Q♣️","J♣️","K♣️"]
     random.shuffle(baralho)
     return baralho
 
-def embaralhar(valores, naipes):
+def embaralhar(valores, naipes): #função de embaralhar as cartas
     img_da_carta = {}
     baralho = []
     for valor in valores:
@@ -31,19 +32,19 @@ def embaralhar(valores, naipes):
     return img_da_carta
 
 
-def extrai_naipe (card):
+def extrai_naipe (card): #função que recebe uma carta (string) e devolve apenas o naipe dela (sem o valor)
     np = card[len(card)-1]
     return np
     
     
-def extrai_valor(palavra):
+def extrai_valor(palavra): #função que recebe uma carta (string) e devolve apenas o valor dela (sem o naipe)
     if len (palavra)== 2:
         return palavra[0]
     elif len (palavra) == 3:
         return palavra [0] + palavra[1] 
         
         
-def lista_movimentos_possiveis(baralho, posicao):
+def lista_movimentos_possiveis(baralho, posicao): #função que recebe um baralho representado como uma lista de strings e o índice (posição) de uma carta e devolve uma lista contendo os movimentos possíveis para essa carta
     movimentos = []
     
     card = baralho[posicao]
@@ -74,12 +75,12 @@ def lista_movimentos_possiveis(baralho, posicao):
             movimentos.append(3)
     return movimentos
     
-def empilha(baralho, origem, destino):
+def empilha(baralho, origem, destino): #função que recebe um baralho representado por uma lista de cartas(strings), uma posição de origem e uma posição de destino e devolve um novo baralho (lista) com a carta da posição de origem no lugar da posição de destino e realizando as devidas movimentações nas cartas restantes
     baralho[destino] = baralho[origem]
     baralho.pop(origem)
     return baralho
     
-def possui_movimentos_possiveis(baralho):
+def possui_movimentos_possiveis(baralho): #função que recebe um baralho representado por uma lista de strings e indica se há ou não movimentos possíveis sobrando
     for i in range(len(baralho)):
         if lista_movimentos_possiveis(baralho, i) != []:
             return True
