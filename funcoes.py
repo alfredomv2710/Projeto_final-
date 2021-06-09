@@ -4,6 +4,10 @@ import pygame
 largura = 938
 altura = 620
 
+def texto(window, msg, cor, tam, x, y):
+    font = pygame.font.SysFont(None, tam)
+    texto1 = font.render(msg, True, cor)
+    window.blit(texto1, [x, y])
 
 def cria_baralho():
     baralho = ["A♥️","2♥️","3♥️","4♥️","5♥️","6♥️","7♥️","8♥️","9♥️","10♥️","Q♥️","J♥️","K♥️","A♠️","2♠️","3♠️","4♠️","5♠️","6♠️","7♠️","8♠️","9♠️","10♠️","Q♠️","J♠️","K♠️","A♦️","2♦️","3♦️","4♦️","5♦️","6♦️","7♦️","8♦️","9♦️","10♦️","Q♦️","J♦️","K♦️","A♣️","2♣️","3♣️","4♣️","5♣️","6♣️","7♣️","8♣️","9♣️","10♣️","Q♣️","J♣️","K♣️"]
