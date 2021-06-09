@@ -1,3 +1,9 @@
 # Projeto_final-
-jogo de paciencia
+
+Título do projeto: Paciência Acordeâo
+
+Nome dos Integrantes: Alfredo Montingelli Villela e Pedro Henrique Cardoso Peretto
+
+Link do vídeo: https://youtu.be/QW7U4-okb1Y 
+
 
