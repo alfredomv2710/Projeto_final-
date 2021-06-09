@@ -1,8 +1,31 @@
 import random
+import pygame
+
+largura = 938
+altura = 620
+
+
 def cria_baralho():
-    baralho = ["A♥","2♥","3♥","4♥","5♥","6♥","7♥","8♥","9♥","10♥","Q♥","J♥","K♥","A♠","2♠","3♠","4♠","5♠","6♠","7♠","8♠","9♠","10♠","Q♠","J♠","K♠","A♦","2♦","3♦","4♦","5♦","6♦","7♦","8♦","9♦","10♦","Q♦","J♦","K♦","A♣","2♣","3♣","4♣","5♣","6♣","7♣","8♣","9♣","10♣","Q♣","J♣","K♣"]
+    baralho = ["A♥️","2♥️","3♥️","4♥️","5♥️","6♥️","7♥️","8♥️","9♥️","10♥️","Q♥️","J♥️","K♥️","A♠️","2♠️","3♠️","4♠️","5♠️","6♠️","7♠️","8♠️","9♠️","10♠️","Q♠️","J♠️","K♠️","A♦️","2♦️","3♦️","4♦️","5♦️","6♦️","7♦️","8♦️","9♦️","10♦️","Q♦️","J♦️","K♦️","A♣️","2♣️","3♣️","4♣️","5♣️","6♣️","7♣️","8♣️","9♣️","10♣️","Q♣️","J♣️","K♣️"]
     random.shuffle(baralho)
     return baralho
+
+def embaralhar(valores, naipes):
+    img_da_carta = {}
+    baralho = []
+    for valor in valores:
+        for naipe in naipes:
+            baralho.append(valor + naipe)
+    random.shuffle(baralho)
+    j = 0
+    for ii in range(len(baralho)):
+        carta_auxiliar = baralho[ii]
+        i = ii % 13
+        if i == 0:
+            j += 1
+        img_da_carta[carta_auxiliar] = [pygame.image.load(f"imgs/{carta_auxiliar}.jpg"), ((i + 1) * int(largura / 14), (j) * int(largura / 9))]
+    return img_da_carta
+
 
 def extrai_naipe (card):
     np = card[len(card)-1]
